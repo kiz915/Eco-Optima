@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eco-Optima - Optimization</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#00f2fe",
+                        "on-primary-fixed-variant": "#004f53",
+                        "secondary-fixed": "#a4f5af",
+                        "surface-container": "#eceef0",
+                        "inverse-primary": "#00dce6",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#002109",
+                        "secondary": "#1c6c35",
+                        "surface-bright": "#f7f9fb",
+                        "tertiary-fixed-dim": "#9bcbff",
+                        "primary-fixed-dim": "#00dce6",
+                        "tertiary-fixed": "#d0e4ff",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-container": "#006a70",
+                        "error-container": "#ffdad6",
+                        "surface": "#f7f9fb",
+                        "on-tertiary-container": "#0063a1",
+                        "outline": "#6a7a7b",
+                        "on-background": "#191c1e",
+                        "on-tertiary-fixed-variant": "#004a7a",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-surface-variant": "#3a494b",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#b9cacb",
+                        "on-secondary-container": "#217139",
+                        "background": "#f7f9fb",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed": "#001d34",
+                        "surface-tint": "#00696f",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d8dadc",
+                        "secondary-fixed-dim": "#89d895",
+                        "tertiary": "#00629f",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#005322",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "primary": "#00696f",
+                        "on-primary-fixed": "#002022",
+                        "secondary-container": "#a1f2ac",
+                        "tertiary-container": "#c1ddff",
+                        "primary-fixed": "#6ff6ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f2f4f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "1rem",
+                        "lg": "2.5rem",
+                        "margin-desktop": "48px",
+                        "xl": "4rem",
+                        "xs": "0.5rem",
+                        "base": "4px",
+                        "md": "1.5rem",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "card-gap": "24px",
+                        "section-margin": "64px",
+                        "unit": "8px",
+                        "container-padding": "32px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .pulse-glow {
+            animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px 10px rgba(0, 242, 254, 0);
+            }
+        }
+        .bg-gradient-radial {
+            background-image: radial-gradient(var(--tw-gradient-stops));
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen overflow-x-hidden selection:bg-primary-container/30 selection:text-on-primary-container">
+<!-- Ambient Background -->
+<div class="fixed inset-0 z-[-1] bg-gradient-to-br from-surface-container-lowest via-surface to-surface-container-low">
+<div class="absolute inset-0 bg-[url('placeholder')] opacity-10 bg-cover bg-center mix-blend-overlay" data-alt="Abstract ethereal background showing deep forest greens blending into dark ocean blues. Soft, out-of-focus light leaks suggest a dense canopy above. The texture is grainy yet smooth, providing a deep, immersive canvas for a high-tech environmental dashboard. It embodies the 'Lumina Ecology' glassmorphism aesthetic."></div>
+<div class="absolute inset-0 bg-gradient-radial from-primary-container/10 via-transparent to-transparent opacity-60"></div>
+</div>
+<!-- TopNavBar (Mobile Only) -->
+<nav class="md:hidden bg-white/60 backdrop-blur-md shadow-sm fixed top-0 w-full z-50 border-b border-outline-variant/30 flex justify-between items-center px-container-padding h-20">
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tighter">Eco-Optima</div>
+<div class="flex gap-4">
+<button class="text-on-surface-variant hover:bg-black/5 transition-colors active:scale-95 duration-150 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-black/5 transition-colors active:scale-95 duration-150 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="User avatar" class="w-10 h-10 rounded-full border border-outline-variant/30 object-cover ml-2" data-alt="Small circular user avatar portrait. Modern, clean lighting. Corporate yet approachable style. Subtle background to ensure the face is the focal point. Matches the dark mode, sleek aesthetic of the dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi7Ny8177vm57dHQImk3ruCTZQI180mXoVWDwWteRSuzoZ6hArRIO5oDoADorpKWiViptU4zEqbFEAZja_KBT4RujhUmrx9RwmTLOLQFJasBY3LW2B4CeKKAjwvB3szOTg1NEk05SXkjGvYfQnRc-HT1HoshJvUAv78dHwWMO0vaNZJLLyhaYx0odMRsTshNQlS9BtIzc8Qny0QmvdXJ6YvNu6eZm9VLDjr2Rqi3MZt41jo19sU4v4yA"/>
+</div>
+</nav>
+<!-- SideNavBar (Desktop Only) -->
+<nav class="hidden md:flex bg-white/60 backdrop-blur-xl fixed left-0 top-0 h-full w-64 z-40 border-r border-outline-variant/30 shadow-sm flex-col py-8 px-4 gap-4">
+<div class="flex items-center gap-3 mb-8 px-2">
+<img alt="Eco-Optima Logo" class="w-10 h-10 rounded-lg object-contain" data-alt="Minimalist abstract logo for Lumina Ecology. A sleek geometric leaf or energy pulse design in electric teal and vibrant green against a dark background. Very clean lines, communicating precision and high-end environmental tech." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDltPAJBJ1D3vRYj_z5dbw0Fcnp266_5IRh0qHhdmll2Fa8b5taD59HVYgfXY9HSpzlnohZVfolcjajVj9nVakh6kLesOKIwN_lVXYKQD035ESo9GwQE9w5nzxq-6yW2Dq-PXoiqePdKmQuERhKBr71X7Bli1gOi0bXjdg4nwZiVcJcmvuoPNX__hfEu_pofKvtK7MCAG_IsVXisRaM-lsLPdNit600wzEZltz117VMlK3LvyYbsuZy_Q"/>
+<div>
+<div class="font-headline-md text-headline-md text-primary">Lumina Ecology</div>
+<div class="text-xs text-on-surface-variant">Precision Optimization</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<!-- Input (Inactive) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-black/5 hover:backdrop-blur-2xl transition-all duration-300 hover:translate-x-1 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="edit_note">edit_note</span>
+<span class="font-label-caps text-label-caps">Input</span>
+</a>
+<!-- Dashboard (Inactive) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-black/5 hover:backdrop-blur-2xl transition-all duration-300 hover:translate-x-1 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<!-- Optimize (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary border-r-4 border-primary font-bold transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="psychology" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-caps text-label-caps">Optimize</span>
+</a>
+</div>
+<button class="mt-auto w-full py-3 px-4 rounded-lg bg-primary-container text-on-primary-container font-label-caps text-label-caps font-bold pulse-glow flex items-center justify-center gap-2 hover:bg-primary-fixed transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+            New Simulation
+        </button>
+<div class="flex flex-col gap-2 mt-4 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-black/5 transition-all duration-300 hover:translate-x-1 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="help">help</span>
+<span class="font-label-caps text-label-caps">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-black/5 transition-all duration-300 hover:translate-x-1 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps">Account</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="pt-24 pb-8 px-4 md:pl-[calc(16rem+2rem)] md:pr-8 md:py-8 max-w-[1600px] mx-auto min-h-screen flex flex-col gap-8">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b border-outline-variant/30 pb-6">
+<div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface font-bold tracking-tight">Optimization Summary</h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg mt-2 max-w-2xl">AI-driven recommendations to maximize efficiency and minimize ecological impact across your facilities.</p>
+</div>
+<!-- Global Action -->
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-caps text-label-caps hover:bg-primary/90 transition-colors flex items-center gap-2 shadow-[0_4px_10px_rgba(0,105,111,0.2)] active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                Run Simulation
+            </button>
+</header>
+<!-- Current vs Optimized Overview -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Current Status -->
+<div class="glass-card rounded-xl p-6 flex flex-col justify-between">
+<div>
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-2">Current Efficiency</h2>
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg text-error">72%</div>
+</div>
+<div class="mt-6">
+<div class="flex justify-between text-sm mb-1 text-on-surface">
+<span>Energy Waste</span>
+<span class="text-error">High</span>
+</div>
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-error w-[72%] shadow-[0_0_10px_rgba(186,26,26,0.3)]"></div>
+</div>
+</div>
+</div>
+<!-- Arrow / Transition indicator -->
+<div class="hidden lg:flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-outline-variant animate-pulse" data-icon="arrow_right_alt">arrow_right_alt</span>
+</div>
+<!-- Projected Status -->
+<div class="glass-card rounded-xl p-6 flex flex-col justify-between relative overflow-hidden">
+<!-- Subtle background glow for optimized state -->
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-primary-container/40 blur-3xl rounded-full pointer-events-none"></div>
+<div class="relative z-10">
+<h2 class="font-label-caps text-label-caps text-primary mb-2">Projected Efficiency</h2>
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary">94%</div>
+</div>
+<div class="mt-6 relative z-10">
+<div class="flex justify-between text-sm mb-1 text-on-surface">
+<span>Carbon Reduction</span>
+<span class="text-primary">+22%</span>
+</div>
+<div class="h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[94%] shadow-[0_0_10px_rgba(0,105,111,0.4)]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Actionable Insights List -->
+<section>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="lightbulb">lightbulb</span>
+                Actionable Insights
+            </h3>
+<div class="flex flex-col gap-4">
+<!-- Insight Card 1 (High Impact) -->
+<div class="glass-card rounded-xl p-6 border-l-4 border-l-primary relative group hover:backdrop-blur-3xl transition-all duration-300">
+<!-- Ambient glow for high impact -->
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-xl"></div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative z-10">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-2">
+<span class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider bg-primary-container/30 text-primary border border-primary/20">High Impact</span>
+<span class="text-on-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span> 15m config
+                                </span>
+</div>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold">Optimize HVAC Schedule</h4>
+<p class="text-on-surface-variant text-sm mt-1">Realigning Zone 3 HVAC cycles with predicted occupancy patterns will yield immediate energy savings.</p>
+</div>
+<div class="flex items-center gap-6 w-full md:w-auto mt-4 md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 border-outline-variant/30">
+<div class="text-right flex-1 md:flex-none">
+<div class="text-xs text-on-surface-variant">Est. Savings</div>
+<div class="text-primary font-bold text-lg">-$4.2k/mo</div>
+</div>
+<button class="bg-transparent border border-outline text-primary hover:bg-black/5 px-5 py-2 rounded-lg font-label-caps text-label-caps transition-colors whitespace-nowrap">
+                                Apply
+                            </button>
+</div>
+</div>
+</div>
+<!-- Insight Card 2 (Medium Impact) -->
+<div class="glass-card rounded-xl p-6 border-l-4 border-l-secondary relative group hover:backdrop-blur-3xl transition-all duration-300">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative z-10">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-2">
+<span class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider bg-secondary/10 text-secondary border border-secondary/20">Medium Impact</span>
+<span class="text-on-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="solar_power">solar_power</span> Physical req.
+                                </span>
+</div>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold">Transition to Solar Phase 2</h4>
+<p class="text-on-surface-variant text-sm mt-1">Activate secondary solar arrays on Roof B to offset peak afternoon grid reliance.</p>
+</div>
+<div class="flex items-center gap-6 w-full md:w-auto mt-4 md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 border-outline-variant/30">
+<div class="text-right flex-1 md:flex-none">
+<div class="text-xs text-on-surface-variant">Est. Savings</div>
+<div class="text-secondary font-bold text-lg">-$2.1k/mo</div>
+</div>
+<button class="bg-transparent border border-outline text-primary hover:bg-black/5 px-5 py-2 rounded-lg font-label-caps text-label-caps transition-colors whitespace-nowrap">
+                                Review Plan
+                            </button>
+</div>
+</div>
+</div>
+<!-- Insight Card 3 (Low Impact) -->
+<div class="glass-card rounded-xl p-6 border-l-4 border-l-outline relative group hover:backdrop-blur-3xl transition-all duration-300 opacity-90">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative z-10">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-2">
+<span class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider bg-outline/10 text-outline border border-outline/20">Low Impact</span>
+<span class="text-on-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="water_drop">water_drop</span> 5m config
+                                </span>
+</div>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold">Adjust Irrigation Timing</h4>
+<p class="text-on-surface-variant text-sm mt-1">Delay automated irrigation by 45 minutes to align with updated dew point forecasts.</p>
+</div>
+<div class="flex items-center gap-6 w-full md:w-auto mt-4 md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 border-outline-variant/30">
+<div class="text-right flex-1 md:flex-none">
+<div class="text-xs text-on-surface-variant">Est. Savings</div>
+<div class="text-outline font-bold text-lg">-$150/mo</div>
+</div>
+<button class="bg-transparent border border-outline text-primary hover:bg-black/5 px-5 py-2 rounded-lg font-label-caps text-label-caps transition-colors whitespace-nowrap">
+                                Apply
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eco-Optima - Input</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "primary-container": "#00f2fe",
+                "on-primary-fixed-variant": "#004f53",
+                "secondary-fixed": "#a4f5af",
+                "surface-container": "#eceef0",
+                "inverse-primary": "#00dce6",
+                "on-error": "#ffffff",
+                "on-secondary-fixed": "#002109",
+                "secondary": "#1c6c35",
+                "surface-bright": "#f7f9fb",
+                "tertiary-fixed-dim": "#9bcbff",
+                "primary-fixed-dim": "#00dce6",
+                "tertiary-fixed": "#d0e4ff",
+                "inverse-surface": "#2d3133",
+                "on-primary-container": "#006a70",
+                "error-container": "#ffdad6",
+                "surface": "#f7f9fb",
+                "on-tertiary-container": "#0063a1",
+                "outline": "#6a7a7b",
+                "on-background": "#191c1e",
+                "on-tertiary-fixed-variant": "#004a7a",
+                "inverse-on-surface": "#eff1f3",
+                "on-surface-variant": "#3a494b",
+                "surface-container-lowest": "#ffffff",
+                "outline-variant": "#b9cacb",
+                "on-secondary-container": "#217139",
+                "background": "#f7f9fb",
+                "surface-container-highest": "#e0e3e5",
+                "on-tertiary-fixed": "#001d34",
+                "surface-tint": "#00696f",
+                "on-error-container": "#93000a",
+                "surface-dim": "#d8dadc",
+                "secondary-fixed-dim": "#89d895",
+                "tertiary": "#00629f",
+                "error": "#ba1a1a",
+                "surface-variant": "#e0e3e5",
+                "surface-container-high": "#e6e8ea",
+                "on-tertiary": "#ffffff",
+                "on-secondary-fixed-variant": "#005322",
+                "on-primary": "#ffffff",
+                "on-surface": "#191c1e",
+                "primary": "#00696f",
+                "on-primary-fixed": "#002022",
+                "secondary-container": "#a1f2ac",
+                "tertiary-container": "#c1ddff",
+                "primary-fixed": "#6ff6ff",
+                "on-secondary": "#ffffff",
+                "surface-container-low": "#f2f4f6"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "sm": "1rem",
+                "lg": "2.5rem",
+                "margin-desktop": "48px",
+                "xl": "4rem",
+                "xs": "0.5rem",
+                "base": "4px",
+                "md": "1.5rem",
+                "gutter": "24px",
+                "margin-mobile": "16px",
+                "card-gap": "24px",
+                "section-margin": "64px",
+                "unit": "8px",
+                "container-padding": "32px",
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "Inter"
+                ],
+                "label-sm": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ],
+                "label-caps": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "display-lg-mobile": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.6",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+            background-image: radial-gradient(circle at top right, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(0, 105, 111, 0.03) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+        
+        .glass-input {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid theme('colors.outline-variant');
+            color: theme('colors.on-surface');
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .glass-input:focus {
+            outline: none;
+            border-color: theme('colors.primary');
+            box-shadow: 0 0 0 1px theme('colors.primary');
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.05);
+        }
+      </style>
+</head>
+<body class="min-h-screen flex flex-col md:flex-row antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation (Mobile Only) -->
+<nav class="md:hidden glass-panel fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-20">
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tighter">
+            Eco-Optima
+        </div>
+<div class="flex gap-4">
+<button class="text-on-surface-variant hover:bg-black/5 transition-colors active:scale-95 duration-150 p-2 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-black/5 transition-colors active:scale-95 duration-150 p-2 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+</div>
+</nav>
+<!-- Side Navigation (Web) -->
+<aside class="hidden md:flex glass-panel fixed left-0 top-0 h-full w-64 z-40 border-r border-white/80 flex-col py-8 px-4 gap-4">
+<div class="mb-8 px-4">
+<h1 class="font-headline-md text-headline-md text-primary">Lumina Ecology</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-1">Precision Optimization</p>
+</div>
+<button class="w-full bg-primary/5 border border-primary/20 text-primary font-label-caps text-label-caps py-3 rounded-lg hover:bg-primary/10 transition-all flex items-center justify-center gap-2 mb-6">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Simulation
+        </button>
+<nav class="flex-1 flex flex-col gap-2">
+<!-- Active Item: Input -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary border-r-4 border-primary-container font-label-caps text-label-caps hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+                Input
+            </a>
+<!-- Inactive Items -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-black/5 font-label-caps text-label-caps hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-black/5 font-label-caps text-label-caps hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">psychology</span>
+                Optimize
+            </a>
+</nav>
+<div class="mt-auto flex flex-col gap-2 pt-6 border-t border-outline-variant/30">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-black/5 font-label-caps text-label-caps transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">help</span>
+                Support
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-black/5 font-label-caps text-label-caps transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">person</span>
+                Account
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 pt-24 pb-12 md:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+<header class="mb-10">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-2">Project Input</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Enter the primary parameters for the environmental impact analysis. High-fidelity data yields superior optimization models.</p>
+</header>
+<!-- Form Container -->
+<div class="glass-panel rounded-xl p-6 md:p-8 lg:p-10 relative overflow-hidden">
+<!-- Decorative Glow -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+<form class="space-y-section-margin relative z-10">
+<!-- Section 1: Project Identity -->
+<section>
+<div class="flex items-center gap-3 mb-6 border-b border-outline-variant/30 pb-2">
+<span class="material-symbols-outlined text-primary">fingerprint</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Project Identity</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant" for="project-name">Project Identifier</label>
+<input class="w-full rounded-lg glass-input px-4 py-3 font-body-md text-body-md" id="project-name" placeholder="e.g. Sector-7G Renewal" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant" for="project-type">Classification</label>
+<select class="w-full rounded-lg glass-input px-4 py-3 font-body-md text-body-md appearance-none" id="project-type">
+<option class="bg-surface-container-lowest" value="">Select Type...</option>
+<option class="bg-surface-container-lowest" value="urban">Urban Infrastructure</option>
+<option class="bg-surface-container-lowest" value="agricultural">Agricultural Zone</option>
+<option class="bg-surface-container-lowest" value="industrial">Industrial Complex</option>
+<option class="bg-surface-container-lowest" value="conservation">Conservation Area</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Section 2: Resource Inputs -->
+<section>
+<div class="flex items-center gap-3 mb-6 border-b border-outline-variant/30 pb-2">
+<span class="material-symbols-outlined text-secondary">eco</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Resource Inputs</h3>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-card-gap">
+<!-- Energy -->
+<div class="bg-surface-container-lowest/60 rounded-lg p-5 border border-outline-variant/40 space-y-4 hover:border-primary/30 transition-colors">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">bolt</span>
+<h4 class="font-label-caps text-label-caps text-on-surface">Energy Draw</h4>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-[10px] text-on-surface-variant">Estimated Monthly (MWh)</label>
+<input class="w-full rounded-lg glass-input px-3 py-2 font-body-md text-body-md" placeholder="0.00" type="number"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-[10px] text-on-surface-variant">Grid Reliance (%)</label>
+<input class="w-full accent-tertiary" max="100" min="0" type="range" value="75"/>
+</div>
+</div>
+<!-- Water -->
+<div class="bg-surface-container-lowest/60 rounded-lg p-5 border border-outline-variant/40 space-y-4 hover:border-primary-container/60 transition-colors">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">water_drop</span>
+<h4 class="font-label-caps text-label-caps text-on-surface">Water Usage</h4>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-[10px] text-on-surface-variant">Est. Daily Volume (kL)</label>
+<input class="w-full rounded-lg glass-input px-3 py-2 font-body-md text-body-md" placeholder="0.00" type="number"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-[10px] text-on-surface-variant">Reclamation Target (%)</label>
+<input class="w-full rounded-lg glass-input px-3 py-2 font-body-md text-body-md" placeholder="e.g. 20" type="number"/>
+</div>
+</div>
+<!-- Waste -->
+<div class="bg-surface-container-lowest/60 rounded-lg p-5 border border-outline-variant/40 space-y-4 hover:border-error/30 transition-colors">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-error text-[20px]">delete_sweep</span>
+<h4 class="font-label-caps text-label-caps text-on-surface">Waste Output</h4>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-[10px] text-on-surface-variant">Solid Waste (Tons/Mo)</label>
+<input class="w-full rounded-lg glass-input px-3 py-2 font-body-md text-body-md" placeholder="0.00" type="number"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-[10px] text-on-surface-variant">Hazardous Material?</label>
+<div class="flex gap-4 pt-1">
+<label class="flex items-center gap-2 font-body-md text-body-md text-on-surface-variant cursor-pointer">
+<input class="text-error focus:ring-error bg-surface-container-lowest border-outline-variant" name="hazmat" type="radio"/> Yes
+                                    </label>
+<label class="flex items-center gap-2 font-body-md text-body-md text-on-surface-variant cursor-pointer">
+<input checked="" class="text-error focus:ring-error bg-surface-container-lowest border-outline-variant" name="hazmat" type="radio"/> No
+                                    </label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Geographic Scope -->
+<section>
+<div class="flex items-center gap-3 mb-6 border-b border-outline-variant/30 pb-2">
+<span class="material-symbols-outlined text-primary-fixed-dim">map</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Geographic Scope</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="space-y-4">
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant" for="region">Primary Biome/Region</label>
+<input class="w-full rounded-lg glass-input px-4 py-3 font-body-md text-body-md" id="region" placeholder="Enter region name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant" for="area">Total Footprint Area (Hectares)</label>
+<input class="w-full rounded-lg glass-input px-4 py-3 font-body-md text-body-md" id="area" placeholder="0.00" type="number"/>
+</div>
+<div class="pt-4">
+<label class="flex items-start gap-3 cursor-pointer group">
+<div class="relative flex items-center justify-center w-5 h-5 mt-0.5">
+<input class="peer appearance-none w-5 h-5 border border-outline-variant rounded bg-surface-container-lowest checked:bg-primary checked:border-primary transition-colors cursor-pointer" type="checkbox"/>
+<span class="material-symbols-outlined absolute text-on-primary text-[16px] opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity font-bold">check</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Include adjacent micro-climate data in primary simulation model.</span>
+</label>
+</div>
+</div>
+<!-- Map Visual Placeholder -->
+<div class="h-48 md:h-full min-h-[200px] rounded-lg border border-outline-variant/50 overflow-hidden relative group">
+<div class="w-full h-full bg-cover bg-center opacity-80 group-hover:opacity-100 transition-opacity duration-500 mix-blend-multiply" data-alt="A detailed digital twin style map visualization of a geographic region, rendered in a dark mode aesthetic with glowing neon green and electric teal topographical lines on a deep black background. The style is highly technical, precise, and futuristic, resembling a high-end environmental scanning interface." data-location="Global" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdz-MB_ZjVQz_OYNPosrS6J5u8RRLmFQQ6g7C_C8J2sOYhETLoLUyUv8aUZD8BO8S4NK2fxDIoboZvNM1NMIJcbZ-pfs9iaCn1h0aXeCjJI2SsDBKzNtJayaoR5F2iF4Lp3eu53sXNSV5j-ibedVThH-CrmI3ntb95tuegmLQJpo1cUgSYBC-RWlzNKxV7UUpG9rGpO5gabsD8XS_j875qw-ZB9b7axxNTFB1rcFSjL6YJ9rnZUe1e6Q')"></div>
+<div class="absolute inset-0 flex items-center justify-center bg-white/30 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="glass-panel text-on-surface px-4 py-2 rounded font-label-caps text-label-caps hover:bg-white/50 transition-colors flex items-center gap-2 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">location_searching</span>
+                                    Define Coordinates
+                                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Actions -->
+<div class="pt-8 mt-12 border-t border-outline-variant/30 flex flex-col sm:flex-row justify-end gap-4 items-center">
+<button class="w-full sm:w-auto px-6 py-3 rounded-lg font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface hover:bg-black/5 border border-transparent hover:border-outline-variant/50 transition-all" type="button">
+                        Save Draft
+                    </button>
+<button class="w-full sm:w-auto px-8 py-3 rounded-lg font-label-caps text-label-caps bg-primary-container text-on-primary-container hover:brightness-105 transition-all shadow-[0_4px_14px_rgba(0,242,254,0.3)] hover:shadow-[0_6px_20px_rgba(0,242,254,0.4)] flex items-center justify-center gap-2" type="submit">
+                        Proceed to Analysis
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</main>
+</body></html>
